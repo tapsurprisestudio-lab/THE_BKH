@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,352 +10,297 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Particle Canvas -->
-    <canvas id="particles"></canvas>
-
-    <!-- Language Toggle -->
-    <div class="lang-toggle">
-        <button id="langBtn" class="lang-btn">EN</button>
-    </div>
-
-    <!-- Navigation -->
-    <nav class="navbar">
+    <!-- Gold Particles Background -->
+    <div class="gold-particles" id="goldParticles"></div>
+    
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo">BKH</a>
-            <ul class="nav-links">
-                <li><a href="#hero" data-en="Home" data-ar="الرئيسية">Home</a></li>
-                <li><a href="#products" data-en="Collection" data-ar="المجموعة">Collection</a></li>
-                <li><a href="#reviews" data-en="Reviews" data-ar="التقييمات">Reviews</a></li>
-            </ul>
-            <button class="cart-btn" id="cartBtn">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
-                    <line x1="3" y1="6" x2="21" y2="6"></line>
-                    <path d="M16 10a4 4 0 0 1-8 0"></path>
-                </svg>
-                <span class="cart-count" id="cartCount">0</span>
+            <a href="#home" class="nav-logo" data-nav>
+                <img src="https://i.imgur.com/dYcqPQm.jpeg" alt="BKH" class="logo-img">
+            </a>
+            
+            <button class="nav-toggle" id="navToggle" aria-label="Menu">
+                <span></span>
+                <span></span>
+                <span></span>
             </button>
+            
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active" data-nav data-lang-key="nav_home">الرئيسية</a></li>
+                <li><a href="#collections" class="nav-link" data-nav data-lang-key="nav_collections">المجموعات</a></li>
+                <li><a href="#about" class="nav-link" data-nav data-lang-key="nav_about">عن المتجر</a></li>
+                <li><a href="#howtoorder" class="nav-link" data-nav data-lang-key="nav_howtoorder">كيف أطلب؟</a></li>
+                <li><a href="#reviews" class="nav-link" data-nav data-lang-key="nav_reviews">آراء العملاء</a></li>
+                <li><a href="#comingsoon" class="nav-link" data-nav data-lang-key="nav_comingsoon">قريباً</a></li>
+                <li><a href="#contact" class="nav-link" data-nav data-lang-key="nav_contact">تواصل معنا</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="lang-toggle" id="langToggle" aria-label="Language">
+                    <span class="lang-en">EN</span>
+                    <span class="lang-ar">ع</span>
+                </button>
+                <button class="cart-btn" id="cartBtn" aria-label="Cart">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"></path>
+                        <line x1="3" y1="6" x2="21" y2="6"></line>
+                        <path d="M16 10a4 4 0 0 1-8 0"></path>
+                    </svg>
+                    <span class="cart-badge" id="cartBadge">0</span>
+                </button>
+            </div>
         </div>
     </nav>
 
+    <!-- Mobile Menu Overlay -->
+    <div class="menu-overlay" id="menuOverlay"></div>
+
     <!-- Hero Section -->
-    <section id="hero" class="hero">
+    <section class="hero" id="home">
+        <div class="hero-light-sweep"></div>
         <div class="hero-content">
-            <h1 class="hero-logo">BKH</h1>
-            <p class="hero-subtitle">
-                <span data-en="Luxury Jewelry Store ✨ Order via Instagram" data-ar="متجر مجوهرات فاخر ✨ طلب عبر الإنستغرام">Luxury Jewelry Store ✨ Order via Instagram</span>
-            </p>
-            <a href="#products" class="hero-btn" data-en="Shop Collection" data-ar="تصفح المجموعة">Shop Collection</a>
-        </div>
-        <div class="hero-scroll">
-            <span data-en="Scroll" data-ar="مرر">Scroll</span>
-            <div class="scroll-line"></div>
+            <img src="https://i.imgur.com/dYcqPQm.jpeg" alt="BKH Logo" class="hero-logo">
+            <h1 class="hero-title">BKH</h1>
+            <p class="hero-tagline" data-lang-key="hero_tagline">اختاري البساطة لتكتمل أناقتك</p>
+            <div class="hero-cta">
+                <a href="#collections" class="btn btn-primary" data-nav data-lang-key="hero_shop">تصفحي المجموعات</a>
+                <a href="#howtoorder" class="btn btn-secondary" data-nav data-lang-key="hero_howto">كيف أطلب؟</a>
+            </div>
+            <div class="hero-badges">
+                <span class="hero-badge" data-lang-key="badge_1">تغليف فاخر</span>
+                <span class="hero-badge" data-lang-key="badge_2">تصاميم راقية</span>
+                <span class="hero-badge" data-lang-key="badge_3">طلب عبر DM بسهولة</span>
+            </div>
         </div>
     </section>
 
-    <!-- Products Section -->
-    <section id="products" class="products">
-        <div class="section-header">
-            <h2 data-en="Our Collection" data-ar="مجموعتنا">Our Collection</h2>
-            <p data-en="Discover timeless elegance" data-ar="اكتشف الأناقة الخالدة">Discover timeless elegance</p>
+    <!-- Collections Section -->
+    <section class="collections" id="collections">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="collections_title">المجموعات</h2>
+            
+            <div class="category-filters" id="categoryFilters">
+                <button class="filter-btn active" data-category="all" data-lang-key="filter_all">الكل</button>
+                <button class="filter-btn" data-category="rings" data-lang-key="filter_rings">خواتم</button>
+                <button class="filter-btn" data-category="sets" data-lang-key="filter_sets">أطقم</button>
+                <button class="filter-btn" data-category="bracelets" data-lang-key="filter_bracelets">أساور</button>
+                <button class="filter-btn" data-category="necklaces" data-lang-key="filter_necklaces">قلادات</button>
+                <button class="filter-btn" data-category="earrings" data-lang-key="filter_earrings">أقراط</button>
+            </div>
+            
+            <div class="products-grid" id="productsGrid">
+                <!-- Products loaded via JS -->
+            </div>
         </div>
+    </section>
 
-        <!-- Category Tabs -->
-        <div class="category-tabs">
-            <button class="tab-btn active" data-category="all" data-en="All" data-ar="الكل">All</button>
-            <button class="tab-btn" data-category="rings" data-en="Rings" data-ar="خواتم">Rings</button>
-            <button class="tab-btn" data-category="sets" data-en="Sets" data-ar="مجموعات">Sets</button>
-            <button class="tab-btn" data-category="bracelets" data-en="Bracelets" data-ar="أساور">Bracelets</button>
-            <button class="tab-btn" data-category="necklaces" data-en="Necklaces" data-ar="قلائد">Necklaces</button>
-            <button class="tab-btn" data-category="earrings" data-en="Earrings" data-ar="أقراط">Earrings</button>
+    <!-- About Section -->
+    <section class="about" id="about">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="about_title">عن المتجر</h2>
+            <div class="about-content">
+                <p class="about-text" data-lang-key="about_text_1">BKH هو متجر مجوهرات فاخرة يقدم أجود تصاميم المجوهرات الذهبية والكريستال.</p>
+                <p class="about-text" data-lang-key="about_text_2">نسعى لتقديم لمسة من الفخامة والأناقة لكل سيدة تبحث عن التميز.</p>
+                <div class="about-stats">
+                    <div class="stat-item">
+                        <span class="stat-number">500+</span>
+                        <span class="stat-label" data-lang-key="stat_customers">عميلة سعيدة</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">50+</span>
+                        <span class="stat-label" data-lang-key="stat_designs">تصميم حصري</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-number">4.9</span>
+                        <span class="stat-label" data-lang-key="stat_rating">تقييم</span>
+                    </div>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <!-- Products Grid -->
-        <div class="products-grid" id="productsGrid">
-            <!-- Rings -->
-            <div class="product-card" data-category="rings">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/kKytRJK.jpeg" alt="Gold Ring" loading="lazy">
-                    <span class="product-badge" data-en="Ring" data-ar="خاتم">Ring</span>
+    <!-- How To Order Section -->
+    <section class="howtoorder" id="howtoorder">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="howto_title">كيف أطلبي؟</h2>
+            <div class="timeline">
+                <div class="timeline-step">
+                    <div class="step-icon">1</div>
+                    <h3 data-lang-key="step_1_title">اختاري المنتج</h3>
+                    <p data-lang-key="step_1_desc">تصفحي مجموعاتنا واختاري ما يعجبك</p>
                 </div>
-                <div class="product-info">
-                    <h3 data-en="Elegant Gold Ring" data-ar="خاتم ذهبي أنيق">Elegant Gold Ring</h3>
-                    <p class="product-price">20,000 DZD</p>
-                    <button class="add-to-cart" data-name="Elegant Gold Ring" data-price="20000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
+                <div class="timeline-step">
+                    <div class="step-icon">2</div>
+                    <h3 data-lang-key="step_2_title">أضيفي للسلة</h3>
+                    <p data-lang-key="step_2_desc">أضيفي المنتج للسلة واختاري الكمية</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">3</div>
+                    <h3 data-lang-key="step_3_title">انسخي الطلب</h3>
+                    <p data-lang-key="step_3_desc">انسخي رسالة الطلب الجاهزة</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">4</div>
+                    <h3 data-lang-key="step_4_title">أرسلي عبر DM</h3>
+                    <p data-lang-key="step_4_desc">افتحي إنستغرام وأرسلينا الرسالة</p>
+                </div>
+                <div class="timeline-step">
+                    <div class="step-icon">5</div>
+                    <h3 data-lang-key="step_5_title">تأكيد الطلب</h3>
+                    <p data-lang-key="step_5_desc">سنؤكد التفاصيل والدفع عند الاستلام</p>
                 </div>
             </div>
-
-            <div class="product-card" data-category="rings">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/xP3LmQ5.jpeg" alt="Premium Ring" loading="lazy">
-                    <span class="product-badge" data-en="Ring" data-ar="خاتم">Ring</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Premium Diamond Ring" data-ar="خاتم ألماس فاخر">Premium Diamond Ring</h3>
-                    <p class="product-price">30,000 DZD</p>
-                    <button class="add-to-cart" data-name="Premium Diamond Ring" data-price="30000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Sets -->
-            <div class="product-card" data-category="sets">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/tCVPEcI.jpeg" alt="Luxury Set" loading="lazy">
-                    <span class="product-badge" data-en="Set" data-ar="مجموعة">Set</span>
-                    <span class="product-promo">-15%</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Royal Luxury Set" data-ar="مجموعة فاخرة ملكية">Royal Luxury Set</h3>
-                    <p class="product-price">
-                        <span class="old-price">200,000 DZD</span>
-                        170,000 DZD
-                    </p>
-                    <button class="add-to-cart" data-name="Royal Luxury Set" data-price="170000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="sets">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/3h0PeaC.jpeg" alt="Crystal Set" loading="lazy">
-                    <span class="product-badge" data-en="Set" data-ar="مجموعة">Set</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Crystal Collection Set" data-ar="مجموعة كريستال">Crystal Collection Set</h3>
-                    <p class="product-note" data-en="All crystal colors available" data-ar="متوفر بجميع ألوان الكريستال">All crystal colors available</p>
-                    <p class="product-price">200,000 DZD</p>
-                    <button class="add-to-cart" data-name="Crystal Collection Set" data-price="200000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Bracelets -->
-            <div class="product-card" data-category="bracelets">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/3GG8mYX.jpeg" alt="Gold Bracelet" loading="lazy">
-                    <span class="product-badge" data-en="Bracelet" data-ar="سوار">Bracelet</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Golden Elegance Bracelet" data-ar="سوار ذهبي أنيق">Golden Elegance Bracelet</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Golden Elegance Bracelet" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Necklaces - Gallery Layout -->
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/mPjtcQw.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Royal Necklace Set" data-ar="مجموعة قلائد ملكية">Royal Necklace Set</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Royal Necklace Set" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/WJqzURm.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Diamond Pendant Necklace" data-ar="قلادة ألماس">Diamond Pendant Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Diamond Pendant Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/l25zGQZ.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Pearl & Gold Necklace" data-ar="قلادة ذهب ولؤلؤ">Pearl & Gold Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Pearl & Gold Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/9KxkXFX.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Elegant Chain Necklace" data-ar="قلادة سلسلة أنيقة">Elegant Chain Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Elegant Chain Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/SPnvYtJ.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Luxury Choker Necklace" data-ar="قلادة فاخرة">Luxury Choker Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Luxury Choker Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/YL7q5z5.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Vintage Gold Necklace" data-ar="قلادة ذهبية عتيقة">Vintage Gold Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Vintage Gold Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <div class="product-card" data-category="necklaces">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/FGI8lcu.jpeg" alt="Necklace" loading="lazy">
-                    <span class="product-badge" data-en="Necklace" data-ar="قلادة">Necklace</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Statement Necklace" data-ar="قلادة مميزة">Statement Necklace</h3>
-                    <p class="product-price">70,000 DZD</p>
-                    <button class="add-to-cart" data-name="Statement Necklace" data-price="70000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
-            </div>
-
-            <!-- Earrings -->
-            <div class="product-card" data-category="earrings">
-                <div class="product-image">
-                    <img src="https://i.imgur.com/oiHsooV.jpeg" alt="Earrings" loading="lazy">
-                    <span class="product-badge" data-en="Earrings" data-ar="أقراط">Earrings</span>
-                </div>
-                <div class="product-info">
-                    <h3 data-en="Luxury Drop Earrings" data-ar="أقراط فاخرة">Luxury Drop Earrings</h3>
-                    <p class="product-price">170,000 DZD</p>
-                    <button class="add-to-cart" data-name="Luxury Drop Earrings" data-price="170000" data-en="Add to Cart" data-ar="أضف للسلة">Add to Cart</button>
-                </div>
+            <div class="coming-soon-badge">
+                <span data-lang-key="payment_coming">الدفع الإلكتروني قريباً</span>
             </div>
         </div>
     </section>
 
     <!-- Reviews Section -->
-    <section id="reviews" class="reviews">
-        <div class="section-header">
-            <h2 data-en="Customer Reviews" data-ar="تقييمات العملاء">Customer Reviews</h2>
-            <p data-en="What our clients say" data-ar="ماذا يقول عملاؤنا">What our clients say</p>
-        </div>
-
-        <div class="reviews-grid" id="reviewsGrid">
-            <!-- Preloaded Reviews -->
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text" data-en="Absolutely stunning jewelry! The quality is exceptional and the design is breathtaking." data-ar="مجوهرات مذهلة! الجودة استثنائية والتصميم يأسر الأنظار.">Absolutely stunning jewelry! The quality is exceptional and the design is breathtaking.</p>
-                <p class="review-author">Sarah M.</p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text" data-en="BKH never disappoints. Every piece is a masterpiece. Highly recommended!" data-ar="BKH لا تخذلك أبداً. كل قطعة تحفة فنية. بشدة أنصح!">BKH never disappoints. Every piece is a masterpiece. Highly recommended!</p>
-                <p class="review-author">Amira K.</p>
-            </div>
-
-            <div class="review-card">
-                <div class="review-stars">★★★★★</div>
-                <p class="review-text" data-en="The packaging was luxurious and the jewelry exceeded my expectations. Will buy again!" data-ar="التغليف كان فاخراً وتجاوزت المجوهرات توقعاتي. سأشتري مرة أخرى!">The packaging was luxurious and the jewelry exceeded my expectations. Will buy again!</p>
-                <p class="review-author">Layla H.</p>
-            </div>
-        </div>
-
-        <!-- Add Review Form -->
-        <div class="add-review">
-            <h3 data-en="Add Your Review" data-ar="أضف تقييمك">Add Your Review</h3>
-            <form id="reviewForm">
-                <input type="text" id="reviewName" placeholder="Your Name / اسمك" required>
-                <div class="star-rating">
+    <section class="reviews" id="reviews">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="reviews_title">آراء العملاء</h2>
+            <p class="reviews-disclaimer" data-lang-key="reviews_disclaimer">هذه الآراء من زوّار هذه الصفحة.</p>
+            
+            <div class="reviews-form">
+                <input type="text" id="reviewName" class="review-input" placeholder="الاسم (اختياري)" data-lang-placeholder="review_name_placeholder">
+                <div class="star-rating" id="starRating">
                     <span class="star" data-value="1">★</span>
                     <span class="star" data-value="2">★</span>
                     <span class="star" data-value="3">★</span>
                     <span class="star" data-value="4">★</span>
                     <span class="star" data-value="5">★</span>
                 </div>
-                <textarea id="reviewComment" placeholder="Your Review / تقييمك" required></textarea>
-                <button type="submit" data-en="Submit Review" data-ar="إرسال التقييم">Submit Review</button>
-            </form>
+                <textarea id="reviewText" class="review-textarea" placeholder="اكتب تجربتك..." data-lang-placeholder="review_text_placeholder"></textarea>
+                <button class="btn btn-primary" id="submitReview" data-lang-key="review_submit">إرسال التقييم</button>
+            </div>
+            
+            <div class="reviews-list" id="reviewsList">
+                <!-- Reviews loaded via JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Coming Soon Section -->
+    <section class="comingsoon" id="comingsoon">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="comingsoon_title">قريباً</h2>
+            <div class="comingsoon-content">
+                <div class="comingsoon-item">
+                    <span class="comingsoon-icon">💳</span>
+                    <span data-lang-key="coming_1">قريباً: دفع إلكتروني</span>
+                </div>
+                <div class="comingsoon-item">
+                    <span class="comingsoon-icon">✨</span>
+                    <span data-lang-key="coming_2">قريباً: مجموعات جديدة</span>
+                </div>
+                <div class="comingsoon-item">
+                    <span class="comingsoon-icon">📦</span>
+                    <span data-lang-key="coming_3">قريباً: تتبع الطلب</span>
+                </div>
+            </div>
+            <button class="btn btn-secondary" id="tellMeBtn" data-lang-key="comingsoon_btn">أخبريني ماذا تريدين</button>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact" id="contact">
+        <div class="container">
+            <h2 class="section-title" data-lang-key="contact_title">تواصل معنا</h2>
+            <div class="contact-content">
+                <div class="ig-card">
+                    <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                        <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                        <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                    </svg>
+                    <span class="ig-handle">@the_bkh10</span>
+                    <a href="https://www.instagram.com/the_bkh10?igsh=M3RkazNrMGxqZmgy" target="_blank" class="btn btn-primary" data-lang-key="contact_btn">فتح إنستغرام</a>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- Footer -->
     <footer class="footer">
-        <div class="footer-content">
-            <h3>BKH</h3>
-            <p data-en="Luxury Jewelry" data-ar="مجوهرات فاخرة">Luxury Jewelry</p>
-            <a href="https://www.instagram.com/the_bkh10" target="_blank" class="instagram-link">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
-                    <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/>
-                </svg>
-                <span data-en="Follow us on Instagram" data-ar="تابعنا على إنستغرام">Follow us on Instagram</span>
-            </a>
-        </div>
-        <div class="footer-bottom">
-            <p>&copy; 2026 BKH Luxury Jewelry. All rights reserved.</p>
+        <div class="container">
+            <p>&copy; 2024 BKH. <span data-lang-key="footer_rights">جميع الحقوق محفوظة</span></p>
         </div>
     </footer>
+
+    <!-- Product Modal -->
+    <div class="modal-overlay" id="productModal">
+        <div class="modal-container">
+            <button class="modal-close" id="modalClose" aria-label="Close">&times;</button>
+            <div class="modal-content">
+                <div class="modal-image">
+                    <img src="" alt="" id="modalImage">
+                </div>
+                <div class="modal-details">
+                    <h3 class="modal-title" id="modalTitle"></h3>
+                    <p class="modal-price" id="modalPrice"></p>
+                    <p class="modal-desc" id="modalDesc"></p>
+                    <p class="modal-colors" id="modalColors"></p>
+                    <div class="modal-qty">
+                        <label data-lang-key="modal_qty">الكمية:</label>
+                        <div class="qty-controls">
+                            <button class="qty-btn" id="qtyMinus">-</button>
+                            <span id="qtyValue">1</span>
+                            <button class="qty-btn" id="qtyPlus">+</button>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary modal-add-btn" id="modalAddBtn" data-lang-key="modal_add">أضيفي للسلة</button>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <!-- Cart Drawer -->
     <div class="cart-overlay" id="cartOverlay"></div>
     <div class="cart-drawer" id="cartDrawer">
         <div class="cart-header">
-            <h3 data-en="Your Cart" data-ar="سلتك">Your Cart</h3>
-            <button class="cart-close" id="cartClose">
-                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
+            <h3 data-lang-key="cart_title">سلتي</h3>
+            <button class="cart-close" id="cartClose" aria-label="Close">&times;</button>
         </div>
         <div class="cart-items" id="cartItems">
-            <p class="cart-empty" data-en="Your cart is empty" data-ar="سلتك فارغة">Your cart is empty</p>
+            <!-- Cart items loaded via JS -->
         </div>
+        <div class="cart-empty" id="cartEmpty" data-lang-key="cart_empty">سلتك فارغة</div>
         <div class="cart-footer">
             <div class="cart-total">
-                <span data-en="Total:" data-ar="الإجمالي:">Total:</span>
-                <span id="cartTotal">0 DZD</span>
+                <span data-lang-key="cart_total">الإجمالي:</span>
+                <span id="cartTotal">0 دج</span>
             </div>
-            <button class="checkout-btn" id="checkoutBtn" data-en="Checkout" data-ar="إتمام الشراء">Checkout</button>
+            <button class="btn btn-primary cart-copy" id="copyOrderBtn" data-lang-key="cart_copy">نسخ الطلب</button>
+            <button class="btn btn-secondary cart-ig" id="openIGBtn" data-lang-key="cart_ig">فتح إنستغرام</button>
+            <p class="cart-hint" id="cartHint" data-lang-key="cart_hint">افتحي DM والصقي الرسالة المنسوخة.</p>
         </div>
     </div>
 
     <!-- Chatbot -->
-    <button class="chatbot-toggle" id="chatbotToggle">
+    <button class="chatbot-toggle" id="chatbotToggle" aria-label="Chat">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
             <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
         </svg>
     </button>
-
-    <div class="chatbot" id="chatbot">
+    
+    <div class="chatbot-panel" id="chatbotPanel">
         <div class="chatbot-header">
             <h4>BKH Assistant</h4>
-            <button class="chatbot-close" id="chatbotClose">
-                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                    <line x1="18" y1="6" x2="6" y2="18"></line>
-                    <line x1="6" y1="6" x2="18" y2="18"></line>
-                </svg>
-            </button>
+            <button class="chatbot-close" id="chatbotClose" aria-label="Close">&times;</button>
         </div>
         <div class="chatbot-messages" id="chatbotMessages">
-            <div class="chatbot-message bot">
-                <p data-en="Welcome to BKH Luxury. How may I assist you?" data-ar="مرحباً بك في BKH الفاخر. كيف يمكنني مساعدتك؟">Welcome to BKH Luxury. How may I assist you?</p>
-            </div>
+            <!-- Messages loaded via JS -->
         </div>
         <div class="chatbot-options" id="chatbotOptions">
-            <button class="chatbot-option" data-action="rings" data-en="View Rings" data-ar="عرض الخواتم">View Rings</button>
-            <button class="chatbot-option" data-action="sets" data-en="View Sets" data-ar="عرض المجموعات">View Sets</button>
-            <button class="chatbot-option" data-action="choose" data-en="Help me choose" data-ar="ساعدني في الاختيار">Help me choose</button>
-            <button class="chatbot-option" data-action="why" data-en="Why choose BKH?" data-ar="لماذا تختار BKH؟">Why choose BKH?</button>
-            <button class="chatbot-option" data-action="order" data-en="How to order" data-ar="كيف اطلب">How to order</button>
+            <!-- Options loaded via JS -->
         </div>
+    </div>
+
+    <!-- Toast -->
+    <div class="toast" id="toast">
+        <span class="toast-message" id="toastMessage"></span>
     </div>
 
     <script src="script.js"></script>
